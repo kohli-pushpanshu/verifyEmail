@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import toast from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
 
 const LoginPage = () => {
@@ -23,10 +22,16 @@ const LoginPage = () => {
       const response = await axios.post('/api/users/login', user)
       console.log("login success", response.data)
       router.push('/me')
-    } catch (error) {
-      console.log("Login failed:", error.response?.data);
-      setLoginError(error.response?.data?.error || "Login failed");
-      toast.error(error.message)
+    } catch (error: unknown) {
+        console.log("Login failed:");
+
+        if (axios.isAxiosError(error)) {
+          setLoginError(error.response?.data?.error || "Login failed");
+        } else if (error instanceof Error) {
+          setLoginError(error.message);
+        } else {
+          setLoginError("Login failed");
+        }
     } finally {
       setloading(false)
     }

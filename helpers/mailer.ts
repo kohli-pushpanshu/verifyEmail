@@ -10,7 +10,7 @@ testPostgresConnection();
 type EmailOptions = {
   email: string;
   emailType: 'VERIFY' | 'RESET';
-  userId: string;
+  userId: number;
 };
 
 export const sendEmail = async ({ email, emailType, userId }: EmailOptions) => {
@@ -72,7 +72,11 @@ export const sendEmail = async ({ email, emailType, userId }: EmailOptions) => {
 
     const mailResponse = await transport.sendMail(info);
     return mailResponse;
-  } catch (error: any) {
-    throw new Error(error.message || 'Failed to send email');
+  } catch (error: unknown) {
+     if (error instanceof Error) {
+      throw new Error(error.message || 'Failed to send email');
+    } else {
+      throw new Error('Failed to send email');
+    }
   }
 };

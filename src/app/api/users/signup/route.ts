@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
     await sendEmail({
       email,
       emailType: 'VERIFY',
-      userId: user.id,
+      userId: Number(user.id),
     });
 
     return NextResponse.json(
@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
   } catch (error: unknown) {
     console.error(error);
     return NextResponse.json(
-      { error: error.message || 'Something went wrong' },
+      { error: error instanceof Error ? error.message : "Unknown error" },
       { status: 500 }
     );
   }
