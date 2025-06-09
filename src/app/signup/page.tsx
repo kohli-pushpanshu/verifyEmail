@@ -106,6 +106,7 @@ const SignUpPage = () => {
           <button
             disabled={button || loading}
             type="submit"
+            onClick={OnSignUp}
             className={`mt-6 w-full py-3 rounded-lg text-white font-semibold transition
               ${button || loading
                 ? 'bg-gray-400 cursor-not-allowed'
