@@ -1,11 +1,10 @@
 'use client';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter} from 'next/navigation';
 
 const VerifyEmailpage = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [Token, setToken] = useState("");
   const [verified, setVerified] = useState(false);
   const [error, setError] = useState(false);
@@ -31,9 +30,9 @@ const VerifyEmailpage = () => {
   }
 
   useEffect(() => {
-    const urlToken = searchParams.get("token");
+    const urlToken = window.location.search.split("=")[1]
     setToken(urlToken || "");
-  }, [searchParams]);
+  }, []);
 
   useEffect(() => {
     if (Token.length > 0) {

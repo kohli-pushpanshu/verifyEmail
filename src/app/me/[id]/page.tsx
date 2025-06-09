@@ -1,17 +1,6 @@
 
 
-type PageProps = {
-  params: {
-    id: string;
-  };
-};
-
-export default function Page({ params }: PageProps) {
-  const id = Number(params.id);
-
-  if (isNaN(id)) {
-    return <div>Invalid ID</div>;
-  }
+export default function Page() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 flex items-center justify-center px-4">
       <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-xl max-w-md w-full p-8 sm:p-10 text-center">
@@ -20,7 +9,7 @@ export default function Page({ params }: PageProps) {
         </h1>
 
         <h2 className="text-xl font-medium text-gray-800 dark:text-gray-300">
-          User ID: <span className="font-mono text-pink-600">{params.id}</span>
+          User ID: <span className="font-mono text-pink-600"></span>
         </h2>
 
         <p className="mt-6 text-sm text-gray-600 dark:text-gray-400">
