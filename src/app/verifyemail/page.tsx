@@ -39,7 +39,7 @@ const VerifyEmailpage = () => {
     if (Token.length > 0) {
       verifyEmail();
     }
-  }, [Token]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 flex items-center justify-center px-4">
