@@ -17,7 +17,11 @@ export const getDataFromToken = async (request:NextRequest) =>{
         return decodedToken.id
 
 
-    } catch (error) {
-        throw new Error(error.message)
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            throw new Error(error.message);
+        } else {
+            throw new Error("Unknown error occurred");
+        }
     }
 }
