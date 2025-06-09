@@ -47,9 +47,9 @@ export async function POST(request: NextRequest) {
     response.cookies.set("token", token, { httpOnly: true });
     return response;
   } catch (error: unknown) {
-    console.error('Error during login:', error);
+    console.log('Error during login:', error);
     return NextResponse.json(
-      { error: error.message || "Internal Server Error" },
+      {error: error instanceof Error ? error.message : "Internal Server Error"},
       { status: 500 }
     );
   }
