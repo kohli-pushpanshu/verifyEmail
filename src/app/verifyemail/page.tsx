@@ -14,13 +14,17 @@ const VerifyEmailpage = () => {
   const verifyEmail = async () => {
     try {
       setLoading(true);
-      await axios.post('/api/users/verifyemail', { token });
+      await axios.post('/api/users/verifyemail', { Token });
       setVerified(true);
       setError(false);
-    } catch (error) {
+    } catch (error:unknown) {
       setError(true);
       setVerified(false);
-      console.log(error.response || error);
+      if (error instanceof Error) {
+        console.log(error.message);
+      } else {
+        console.log(String(error));
+      }
     } finally {
       setLoading(false);
     }
