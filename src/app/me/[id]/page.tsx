@@ -5,8 +5,10 @@ type PageProps = {
 };
 
 export default async function Page({ params }: PageProps) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const id = Number(params.id);
+   if (isNaN(id)) {
+    return <div>Invalid ID</div>;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 flex items-center justify-center px-4">
