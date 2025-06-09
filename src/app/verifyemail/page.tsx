@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 const VerifyEmailpage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [token, setToken] = useState("");
+  const [Token, setToken] = useState("");
   const [verified, setVerified] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -32,10 +32,10 @@ const VerifyEmailpage = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    if (token.length > 0) {
+    if (Token.length > 0) {
       verifyEmail();
     }
-  }, [token]);
+  }, [Token]);
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 flex items-center justify-center px-4">
