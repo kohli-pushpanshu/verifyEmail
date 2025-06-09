@@ -28,7 +28,7 @@ export const sendEmail = async ({ email, emailType, userId }: EmailOptions) => {
       });
     } else if (emailType === 'RESET') {
       await prisma.user.update({
-        where: { id: userId },
+        where: { id: Number(userId) },
         data: {
           forgotPasswordToken: hashedToken,
           forgotPasswordTokenExpiry: expiry,
