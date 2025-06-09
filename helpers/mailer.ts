@@ -20,7 +20,7 @@ export const sendEmail = async ({ email, emailType, userId }: EmailOptions) => {
 
     if (emailType === 'VERIFY') {
       await prisma.user.update({
-        where: { id: userId },
+        where: { id: Number(userId) },
         data: {
           verifyToken: hashedToken,
           verifyTokenExpiry: expiry,
