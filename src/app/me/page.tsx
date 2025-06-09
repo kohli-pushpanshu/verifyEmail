@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 const MePage = () => {
   const router = useRouter();
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<unknown>(null);
 
   const getUserData = async () => {
     try {

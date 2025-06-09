@@ -13,7 +13,7 @@ export default function ProfilePage({ params }: unknown) {
         </h2>
 
         <p className="mt-6 text-sm text-gray-600 dark:text-gray-400">
-          This is a dynamic route for viewing a user's profile by ID.
+          This is a dynamic route for viewing a users profile by ID.
         </p>
       </div>
     </div>
