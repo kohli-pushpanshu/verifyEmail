@@ -1,7 +1,6 @@
 import { prisma } from 'lib/prisma';
 import { NextRequest, NextResponse } from 'next/server';
 import bcryptjs from 'bcryptjs';
-import { testPostgresConnection } from 'lib/dbCheck';
 import jwt from 'jsonwebtoken'
 
 
