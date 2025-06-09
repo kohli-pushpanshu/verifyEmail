@@ -5,9 +5,16 @@ import Link from 'next/link';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 
+type UserData = {
+  id: number;
+  email: string;
+  username: string;
+};
+
+
 const MePage = () => {
   const router = useRouter();
-  const [data, setData] = useState<unknown>(null);
+  const [data, setData] = useState<UserData | null>(null);
 
   const getUserData = async () => {
     try {
@@ -27,8 +34,9 @@ const MePage = () => {
       toast.success("Logout successful");
       router.push("/login");
     } catch (error: unknown) {
-      console.log(error.message);
-      toast.error(error.message || "Logout failed");
+      if (error instanceof Error) {
+        console.log(error.message);
+      }
     }
   };
 
