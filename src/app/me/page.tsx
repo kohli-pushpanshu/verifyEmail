@@ -30,7 +30,7 @@ const MePage = () => {
 
   const logout = async () => {
     try {
-      await axios.get("/api/users/logout");
+      await axios.post("/api/users/logout");
       toast.success("Logout successful");
       router.push("/login");
     } catch (error: unknown) {

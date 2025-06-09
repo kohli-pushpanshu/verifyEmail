@@ -4,7 +4,7 @@ import { testPostgresConnection } from 'lib/dbCheck';
 
 
 testPostgresConnection()
-export async function GET(){
+export async function POST(){
     try {
         const Response=NextResponse.json({
             message: "Logout Successfully",
