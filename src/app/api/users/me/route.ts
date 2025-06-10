@@ -6,7 +6,7 @@ export async function GET() {
   return NextResponse.json({ message: "GET route works!" });
 }
 
-export default async function POST(request: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
     const userId = await getDataFromToken(request); 
     const user = await prisma.user.findUnique({
