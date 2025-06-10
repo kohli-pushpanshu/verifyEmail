@@ -18,7 +18,7 @@ const MePage = () => {
 
   const getUserData = async () => {
     try {
-      const res = await axios.post('/api/users/me');
+      const res = await axios.get('/api/users/me');
       console.log("API Response:", res.data);
       setData(res.data.data || res.data.user); // Full user object
       toast.success("User data loaded");
