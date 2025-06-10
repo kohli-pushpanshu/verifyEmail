@@ -18,7 +18,7 @@ const MePage = () => {
 
   const getUserData = async () => {
     try {
-      const res = await axios.post("/api/users/me");
+      const res = await axios.post('/api/users/me');
       console.log("API Response:", res.data);
       setData(res.data.data || res.data.user); // Full user object
       toast.success("User data loaded");
@@ -30,7 +30,7 @@ const MePage = () => {
 
   const logout = async () => {
     try {
-      await axios.post("/api/users/logout");
+      await axios.post('/api/users/logout');
       toast.success("Logout successful");
       router.push("/login");
     } catch (error: unknown) {
