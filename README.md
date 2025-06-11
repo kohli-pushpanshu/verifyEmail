@@ -16,8 +16,8 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-link :- https://verify-email-5hdx8tol5-pushpanshugujjar-gmailcoms-projects.vercel.app
-
+link :-
+https://verify-email-4jraj9th8-pushpanshugujjar-gmailcoms-projects.vercel.app
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
